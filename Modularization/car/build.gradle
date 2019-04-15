@@ -9,7 +9,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        resourcePrefix "router_"
+        resourcePrefix "baseres_"
     }
     buildTypes {
         release {
@@ -24,18 +24,8 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    testImplementation 'junit:junit:4.12'
-
-    api 'com.android.support:design:28+'
     api 'com.android.support:appcompat-v7:28+'
-
-    api 'io.reactivex:rxandroid:1.1.0'
-    api 'io.reactivex:rxjava:1.1.0'
-
-    api 'com.kymjs.core:common:1.0.3'
-    api 'com.kymjs.core:crash:1.0.1'
-
-    api project(':base')
+    testImplementation 'junit:junit:4.12'
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_7

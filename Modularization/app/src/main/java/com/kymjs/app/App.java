@@ -10,11 +10,11 @@ import com.kymjs.crash.CustomActivityOnCrash;
  * Created by ZhangTao on 10/12/16.
  */
 
-public class AppContext extends Application {
+public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
         LogUtils.mLogEnable = BuildConfig.DEBUG;
-        CustomActivityOnCrash.install(App.INSTANCE);
+        CustomActivityOnCrash.install(com.kymjs.common.App.INSTANCE);
     }
 }

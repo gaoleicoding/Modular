@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    android:orientation="vertical">
 
-    <include
-        layout="@layout/app_bar_main"
+
+    <com.kymjs.app.view.CustomViewPager
+        android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-    <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer"/>
+    <View
+        style="@style/horizontal_divider_setting"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true" />
 
-</android.support.v4.widget.DrawerLayout>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        app:tabIndicatorColor="@color/app_color"
+        app:tabIndicatorHeight="0dp">
+
+    </android.support.design.widget.TabLayout>
+</LinearLayout>
+

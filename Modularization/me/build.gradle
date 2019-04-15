@@ -52,7 +52,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     testImplementation 'junit:junit:4.12'
-    api project(':router')
+    api project(':message')
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_7

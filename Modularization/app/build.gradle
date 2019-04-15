@@ -16,6 +16,9 @@ android {
         } else {
             buildConfigField 'boolean', 'ISAPP', 'true'
         }
+
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     buildTypes {
         debug {
@@ -36,13 +39,8 @@ dependencies {
     })
     testImplementation 'junit:junit:4.12'
 
-    if (isDebug.toBoolean()) {
-        api project(':router')
-    } else {
-        api project(':tools')
-        api project(':share')
-    }
+        api project(':car')
+        api project(':message')
+        api project(':order')
+        api project(':me')
 }
-
-sourceCompatibility = JavaVersion.VERSION_1_7
-targetCompatibility = JavaVersion.VERSION_1_7

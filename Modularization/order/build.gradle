@@ -54,7 +54,7 @@ dependencies {
     })
     testImplementation 'junit:junit:4.12'
 
-    api project(':router')
+    api project(':message')
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_7
