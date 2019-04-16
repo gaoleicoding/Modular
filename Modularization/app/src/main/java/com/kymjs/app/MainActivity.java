@@ -1,178 +1,79 @@
 package com.kymjs.app;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.Animation;
-import android.widget.TextView;
 
-import com.kymjs.app.base_res.utils.AnimationUtil;
-import com.kymjs.router.ActivityRouter;
-import com.kymjs.router.FragmentRouter;
-import com.kymjs.router.RouterList;
+import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
+
+    private ArrayList<Fragment> mFragments;
+    private ArrayList<String> titles;
+  ViewPager viewPager;
+  TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = getToolbar();
-        setSupportActionBar(toolbar);
+        viewPager=findViewById(R.id.viewPager);
+        tabLayout=findViewById(R.id.tabLayout);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        toggle.syncState();
+        mFragments = new ArrayList<Fragment>();
+        HomeFragment homeFragment = new HomeFragment();
+        mFragments.add(homeFragment);
+        mFragments.add(homeFragment);
+        mFragments.add(homeFragment);
+        mFragments.add(homeFragment);
+        titles = new ArrayList<String>();
+        titles.add(getString(R.string.cars));
+        titles.add(getString(R.string.message));
+        titles.add(getString(R.string.order));
+        titles.add(getString(R.string.me ));
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.content_main,
-                        FragmentRouter.getFragment(RouterList.FRAG_MAIN))
-                .commit();
+        MainTabAdapter adapter = new MainTabAdapter(getSupportFragmentManager(), mFragments);
+        viewPager.setOffscreenPageLimit(mFragments.size());
+        viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager));
+        //将TabLayout和ViewPager关联起来
+        tabLayout.setupWithViewPager(viewPager);
+        initTab();
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    @SuppressWarnings("StatementWithEmptyBody")
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-            ActivityRouter.startActivityForName(this, RouterList.TOOL_ATY_MAIN);
-        } else if (id == R.id.nav_share) {
-            ActivityRouter.startActivityForName(this, RouterList.SHARE_ATY_MAIN);
-        } else if (id == R.id.nav_send) {
-            throw new RuntimeException("throw exception");
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-    protected Toolbar getToolbar() {
-        return (Toolbar) findViewById(R.id.toolbar);
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (BuildConfig.ISAPP) {
-            return handleExitTip(keyCode);
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-    /////////////////////////// show exit tip ////////////////////////////////////
-
-    private boolean isOnKeyBacking;
-    private Handler mMainLoopHandler = new Handler(Looper.getMainLooper());
-    private Runnable onBackTimeRunnable = new Runnable() {
-        @Override
-        public void run() {
-            isOnKeyBacking = false;
-            cancleExit();
-        }
-    };
-
-    private boolean handleExitTip(int keyCode) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (isOnKeyBacking) {
-                mMainLoopHandler.removeCallbacks(onBackTimeRunnable);
-                isOnKeyBacking = false;
-                finish();
-            } else {
-                isOnKeyBacking = true;
-                showExitTip();
-                mMainLoopHandler.postDelayed(onBackTimeRunnable, 2000);
-            }
-            return true;
-        }
-        return false;
-    }
-
     /**
-     * 显示Toolbar的退出tip
+     * 设置添加Tab
      */
-    public void showExitTip() {
-        TextView view = (TextView) findViewById(R.id.titlebar_text_exittip);
-        view.setVisibility(View.VISIBLE);
-        Animation a = AnimationUtil.getTranslateAnimation(0f, 0f, -getToolbar().getHeight(), 0f, 300);
-        view.startAnimation(a);
-    }
+    private void initTab() {
 
-    /**
-     * 取消退出
-     */
-    public void cancleExit() {
-        final TextView view = (TextView) findViewById(R.id.titlebar_text_exittip);
-        Animation a = AnimationUtil.getTranslateAnimation(0f, 0f, 0f, -getToolbar().getHeight(), 300);
-        a.setAnimationListener(new Animation.AnimationListener() {
+        tabLayout.getTabAt(0).setCustomView(R.layout.tab_cars);
+        tabLayout.getTabAt(1).setCustomView(R.layout.tab_message);
+        tabLayout.getTabAt(2).setCustomView(R.layout.tab_order);
+        tabLayout.getTabAt(3).setCustomView(R.layout.tab_me);
+
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            //标签选中之后执行的方法
             @Override
-            public void onAnimationStart(Animation animation) {
+            public void onTabSelected(TabLayout.Tab tab) {
+                int position = tab.getPosition();
+            }
+
+            //标签没选中
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
             }
 
             @Override
-            public void onAnimationEnd(Animation animation) {
-                view.setVisibility(View.GONE);
-            }
+            public void onTabReselected(TabLayout.Tab tab) {
 
-            @Override
-            public void onAnimationRepeat(Animation animation) {
             }
         });
-        view.startAnimation(a);
+
+
     }
 }

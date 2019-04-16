@@ -1,1 +1,1 @@
-include ':app', ':car', ':message', ':order', ':me', ':base'
+include ':app'
