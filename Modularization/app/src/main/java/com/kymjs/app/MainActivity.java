@@ -7,6 +7,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.car.CarFragment;
+import com.example.me.MeFragment;
+import com.example.message.MessageFragment;
+import com.example.order.OrderFragment;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,11 +30,15 @@ public class MainActivity extends AppCompatActivity {
         tabLayout=findViewById(R.id.tabLayout);
 
         mFragments = new ArrayList<Fragment>();
-        HomeFragment homeFragment = new HomeFragment();
-        mFragments.add(homeFragment);
-        mFragments.add(homeFragment);
-        mFragments.add(homeFragment);
-        mFragments.add(homeFragment);
+        // 获取Fragment
+        CarFragment carFragment = new CarFragment();
+        MessageFragment messageFragment = new MessageFragment();
+        OrderFragment orderFragment = new OrderFragment();
+        MeFragment meFragment = new MeFragment();
+        mFragments.add(carFragment);
+        mFragments.add(messageFragment);
+        mFragments.add(orderFragment);
+        mFragments.add(meFragment);
         titles = new ArrayList<String>();
         titles.add(getString(R.string.cars));
         titles.add(getString(R.string.message));
