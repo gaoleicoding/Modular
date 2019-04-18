@@ -5,9 +5,6 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-
-import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.car.CarFragment;
 import com.example.me.MeFragment;
 import com.example.message.MessageFragment;
