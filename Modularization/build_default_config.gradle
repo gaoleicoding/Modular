@@ -1,0 +1,52 @@
+android {
+    compileSdkVersion Integer.parseInt(project.COMPILE_SDK_VERSION)
+    buildToolsVersion project.BUILD_TOOLS_VERSION
+
+    dexOptions {
+        maxProcessCount 16
+        javaMaxHeapSize "4g"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    defaultConfig {
+
+        targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
+        //api level :http://developer.android.com/guide/topics/manifest/uses-sdk-element.html
+        //支持4.2及其4.2以上
+        minSdkVersion Integer.parseInt(project.MIN_SDK_VERSION)
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+    }
+
+    buildTypes {
+        debug {
+            zipAlignEnabled false
+            shrinkResources false
+        }
+        release {
+            // Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources false
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+dependencies {
+    api fileTree(dir: 'libs', include: '*.jar')
+    implementation 'com.android.support:appcompat-v7:28+'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
