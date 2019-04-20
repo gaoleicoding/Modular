@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.kymjs.app.R;
 
 
 @Route(path = "/car/car_fragment")
