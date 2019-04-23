@@ -1,4 +1,4 @@
-package com.kymjs.app;
+package com.example.base;
 
 import android.app.Application;
 import android.support.multidex.MultiDex;
@@ -6,7 +6,7 @@ import android.support.multidex.MultiDex;
 import com.alibaba.android.arouter.launcher.ARouter;
 
 
-public class App extends Application {
+public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
@@ -14,7 +14,7 @@ public class App extends Application {
         MultiDex.install(this);
     }
 
-    private void initRouter(App myApplication) {
+    private void initRouter(BaseApplication myApplication) {
 
         ARouter.init(myApplication);
 

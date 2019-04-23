@@ -8,9 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.base.RouterPath;
 
 
-@Route(path = "/order/order_fragment")
+@Route(path = RouterPath.ORDER_FRAGMENT)
 public class OrderFragment extends Fragment {
 
     @Nullable

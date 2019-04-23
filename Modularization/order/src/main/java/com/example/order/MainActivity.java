@@ -3,6 +3,8 @@ package com.example.order;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.base.util.FragmentUtils;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -10,5 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        FragmentUtils.addFragment(this, new OrderFragment(), R.id.fl_container);
+
     }
 }

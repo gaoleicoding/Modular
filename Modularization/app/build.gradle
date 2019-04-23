@@ -31,17 +31,17 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation 'com.android.support:multidex:1.0.3'
-    if (!isCarAsApp.toBoolean ()) {
+    if (!isCarAsApp.toBoolean()) {
         api project(':car')
     }
-    if (!isMeAsApp.toBoolean ()) {
+    if (!isMeAsApp.toBoolean()) {
         api project(':me')
     }
-    if (!isMessageAsApp.toBoolean ()) {
+    if (!isMessageAsApp.toBoolean()) {
         api project(':message')
     }
-    if (!isOrderAsApp.toBoolean ()) {
+    if (!isOrderAsApp.toBoolean()) {
         api project(':order')
     }
+    implementation project(':base')
 }

@@ -10,6 +10,9 @@ android {
 
 
     defaultConfig {
+        if (isCarAsApp.toBoolean()) {
+            applicationId "com.example.car"
+        }
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
@@ -23,7 +26,7 @@ android {
             if (isCarAsApp.toBoolean()) {
                 manifest.srcFile 'src/main/debug/AndroidManifest.xml'
             } else {
-                manifest.srcFile 'src/main/release/AndroidManifest.xml'
+                manifest.srcFile 'src/main/AndroidManifest.xml'
                 java {
                     exclude 'debug/**'
                 }

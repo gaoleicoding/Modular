@@ -5,10 +5,9 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import com.example.car.CarFragment;
-import com.example.me.MeFragment;
-import com.example.message.MessageFragment;
-import com.example.order.OrderFragment;
+
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.base.RouterPath;
 
 import java.util.ArrayList;
 
@@ -16,31 +15,37 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Fragment> mFragments;
     private ArrayList<String> titles;
-  ViewPager viewPager;
-  TabLayout tabLayout;
+    ViewPager viewPager;
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        viewPager=findViewById(R.id.viewPager);
-        tabLayout=findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
+        tabLayout = findViewById(R.id.tabLayout);
 
         mFragments = new ArrayList<Fragment>();
         // 获取Fragment
-        CarFragment carFragment = new CarFragment();
-        MessageFragment messageFragment = new MessageFragment();
-        OrderFragment orderFragment = new OrderFragment();
-        MeFragment meFragment = new MeFragment();
-        mFragments.add(carFragment);
-        mFragments.add(messageFragment);
-        mFragments.add(orderFragment);
-        mFragments.add(meFragment);
+//        CarFragment carFragment = new CarFragment();
+//        MessageFragment messageFragment = new MessageFragment();
+//        OrderFragment orderFragment = new OrderFragment();
+//        MeFragment meFragment = new MeFragment();
+
         titles = new ArrayList<String>();
+        DefaultFragment defaultFragment = new DefaultFragment();
+        Fragment carFragment = (Fragment) ARouter.getInstance().build(RouterPath.CAR_FRAGMENT).navigation();
+        Fragment orderFragment = (Fragment) ARouter.getInstance().build(RouterPath.ORDER_FRAGMENT).navigation();
+        Fragment messageFragment = (Fragment) ARouter.getInstance().build(RouterPath.MESSAGE_FRAGMENT).navigation();
+        Fragment meFragment = (Fragment) ARouter.getInstance().build(RouterPath.ME_FRAGMENT).navigation();
+        mFragments.add(carFragment == null ? new DefaultFragment() : carFragment);
+        mFragments.add(messageFragment == null ? new DefaultFragment() : messageFragment);
+        mFragments.add(orderFragment == null ? new DefaultFragment() : orderFragment);
+        mFragments.add(meFragment == null ? new DefaultFragment() : meFragment);
         titles.add(getString(R.string.cars));
         titles.add(getString(R.string.message));
         titles.add(getString(R.string.order));
-        titles.add(getString(R.string.me ));
+        titles.add(getString(R.string.me));
 
         MainTabAdapter adapter = new MainTabAdapter(getSupportFragmentManager(), mFragments);
         viewPager.setOffscreenPageLimit(mFragments.size());
@@ -51,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         initTab();
     }
+
     /**
      * 设置添加Tab
      */
