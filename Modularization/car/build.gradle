@@ -17,7 +17,11 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [ moduleName : project.getName() ]
+            }
+        }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -48,5 +52,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
     api project(':base')
 }
