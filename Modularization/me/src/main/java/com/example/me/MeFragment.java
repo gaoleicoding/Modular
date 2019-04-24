@@ -8,10 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.base.RouterPath;
+import com.example.base.arouter.ArouterConfig;
+import com.example.base.arouter.RouterPath;
 
 
-@Route(path = RouterPath.ME_FRAGMENT)
+@Route(path = RouterPath.FRAGMENT_ME, extras = ArouterConfig.NEED_LOGIN)
 public class MeFragment extends Fragment {
 
     @Nullable
