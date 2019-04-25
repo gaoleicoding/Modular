@@ -2,14 +2,9 @@ android {
     compileSdkVersion Integer.parseInt(project.COMPILE_SDK_VERSION)
     buildToolsVersion project.BUILD_TOOLS_VERSION
 
-
-
-
     defaultConfig {
-
         targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
         minSdkVersion Integer.parseInt(project.MIN_SDK_VERSION)
-
         versionCode 1
         versionName "1.0"
         javaCompileOptions {
@@ -38,7 +33,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
@@ -48,4 +42,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+
 }

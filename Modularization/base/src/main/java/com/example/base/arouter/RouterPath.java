@@ -7,6 +7,7 @@ public class RouterPath {
     public static final String FRAGMENT_MESSAGE = "/message/message_fragment";
     public static final String FRAGMENT_ORDER = "/order/order_fragment";
     public static final String ACTIIVTY_LOGIN = "/activity/login";
+    public static final String ACTIIVTY_USERINFO = "/activity/userinfo";
 
 
 }
