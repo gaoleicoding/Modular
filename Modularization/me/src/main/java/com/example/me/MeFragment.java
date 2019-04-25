@@ -12,7 +12,7 @@ import com.example.base.arouter.ArouterConfig;
 import com.example.base.arouter.RouterPath;
 
 
-@Route(path = RouterPath.FRAGMENT_ME, extras = ArouterConfig.NEED_LOGIN)
+@Route(path = RouterPath.FRAGMENT_ME)
 public class MeFragment extends Fragment {
 
     @Nullable
