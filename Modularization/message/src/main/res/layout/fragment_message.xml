@@ -6,7 +6,7 @@
     android:fitsSystemWindows="true">
 
     <TextView
-        android:id="@+id/titlebar_text_exittip"
+        android:id="@+id/tv_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
