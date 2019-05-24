@@ -11,10 +11,10 @@ import android.widget.Toast;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.base.arouter.OrderService;
-import com.example.base.arouter.RouterPath;
+import com.example.base.arouter.ARouterPath;
 
 
-@Route(path = RouterPath.FRAGMENT_ORDER)
+@Route(path = ARouterPath.FRAGMENT_ORDER)
 public class OrderFragment extends Fragment {
 
     @Nullable
@@ -26,7 +26,7 @@ public class OrderFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(),"下单成功",Toast.LENGTH_SHORT).show();
-                OrderService orderService=(OrderService)ARouter.getInstance().build(RouterPath.FRAGMENT_MESSAGE).navigation();
+                OrderService orderService=(OrderService)ARouter.getInstance().build(ARouterPath.FRAGMENT_MESSAGE).navigation();
                 orderService.orderNotify("");
             }
         });

@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.base.arouter.RouterPath;
-@Route(path = RouterPath.ACTIIVTY_LOGIN)
+import com.example.base.arouter.ARouterPath;
+@Route(path = ARouterPath.ACTIIVTY_LOGIN)
 public class LoginActivity extends AppCompatActivity {
 
     @Override

@@ -8,10 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.example.base.arouter.RouterPath;
+import com.example.base.arouter.ARouterPath;
 
 
-@Route(path = RouterPath.FRAGMENT_CAR)
+@Route(path = ARouterPath.FRAGMENT_CAR)
 public class CarFragment extends Fragment {
 
     @Nullable

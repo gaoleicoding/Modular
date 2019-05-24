@@ -12,8 +12,8 @@ import com.alibaba.android.arouter.launcher.ARouter;
 /*
 priority是拦截器的优先级，值越小优先级越高，会优先拦截
 */
-@Interceptor(priority = 1)
-public class LoginInterceptor implements IInterceptor {
+@Interceptor(priority = 2)
+public class LoginInterceptor2 implements IInterceptor {
 
     private static final String TAG = "LoginInterceptor";
 
@@ -21,14 +21,14 @@ public class LoginInterceptor implements IInterceptor {
 
     @Override
     public void process(Postcard postcard, InterceptorCallback callback) {
-
-        Log.i(TAG, "LoginInterceptor 开始执行");
+        boolean isLogin = false;
+        Log.i(TAG, "LoginInterceptor2 开始执行");
 
         //给需要跳转的页面添加值为Constant.LOGIN_NEEDED的extra参数，用来标记是否需要用户先登录才可以访问该页面
         //先判断需不需要
         if (postcard.getExtra() == ArouterConfig.NEED_LOGIN) {
+        //if(postcard.getPath().equals(ARouterPath.ACTIIVTY_USERINFO))
 
-            boolean isLogin = false;
 
             //判断用户的登录情况，可以把值保存在sp中
             if (isLogin) {
@@ -39,6 +39,8 @@ public class LoginInterceptor implements IInterceptor {
         } else {//没有extra参数时则继续执行，不做拦截
             callback.onContinue(postcard);
         }
+
+//        callback.onInterrupt(null);
 
     }
 

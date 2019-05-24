@@ -11,10 +11,10 @@ import android.widget.TextView;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.example.base.arouter.OrderService;
-import com.example.base.arouter.RouterPath;
+import com.example.base.arouter.ARouterPath;
 
 
-@Route(path = RouterPath.FRAGMENT_MESSAGE)
+@Route(path = ARouterPath.FRAGMENT_MESSAGE)
 public class MessageFragment extends Fragment implements OrderService {
 
     private TextView tvMessage;

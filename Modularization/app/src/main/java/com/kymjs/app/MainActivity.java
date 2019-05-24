@@ -7,7 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.base.arouter.RouterPath;
+import com.example.base.arouter.ARouterPath;
 
 import java.util.ArrayList;
 
@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
 //        MeFragment meFragment = new MeFragment();
 
         titles = new ArrayList<String>();
-        Fragment carFragment = (Fragment) ARouter.getInstance().build(RouterPath.FRAGMENT_CAR).navigation();
-        Fragment orderFragment = (Fragment) ARouter.getInstance().build(RouterPath.FRAGMENT_ORDER).navigation();
-        Fragment messageFragment = (Fragment) ARouter.getInstance().build(RouterPath.FRAGMENT_MESSAGE).navigation();
-        Fragment meFragment = (Fragment) ARouter.getInstance().build(RouterPath.FRAGMENT_ME).navigation();
+        Fragment carFragment = (Fragment) ARouter.getInstance().build(ARouterPath.FRAGMENT_CAR).navigation();
+        Fragment orderFragment = (Fragment) ARouter.getInstance().build(ARouterPath.FRAGMENT_ORDER).navigation();
+        Fragment messageFragment = (Fragment) ARouter.getInstance().build(ARouterPath.FRAGMENT_MESSAGE).navigation();
+        Fragment meFragment = (Fragment) ARouter.getInstance().build(ARouterPath.FRAGMENT_ME).navigation();
         mFragments.add(carFragment == null ? new DefaultFragment() : carFragment);
         mFragments.add(messageFragment == null ? new DefaultFragment() : messageFragment);
         mFragments.add(orderFragment == null ? new DefaultFragment() : orderFragment);

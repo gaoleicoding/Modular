@@ -10,11 +10,10 @@ import android.widget.Button;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.base.arouter.ArouterConfig;
-import com.example.base.arouter.RouterPath;
+import com.example.base.arouter.ARouterPath;
 
 
-@Route(path = RouterPath.FRAGMENT_ME)
+@Route(path = ARouterPath.FRAGMENT_ME)
 public class MeFragment extends Fragment {
 
     Button bt_skip;
@@ -35,6 +34,7 @@ public class MeFragment extends Fragment {
     }
 
     public void sikp() {
-        ARouter.getInstance().build(RouterPath.ACTIIVTY_USERINFO).navigation();
+        //     ARouter.getInstance().build(ARouterPath.ACTIIVTY_USERINFO).withTransition(R.anim.slide_in_right, R.anim.slide_out_right).navigation(getActivity());
+        ARouter.getInstance().build(ARouterPath.ACTIIVTY_USERINFO).greenChannel().withTransition(R.anim.slide_in_right, R.anim.slide_out_right).navigation();
     }
 }

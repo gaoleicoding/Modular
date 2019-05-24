@@ -1,6 +1,6 @@
 package com.example.base.arouter;
 
-public class RouterPath {
+public class ARouterPath {
 
     public static final String FRAGMENT_ME = "/me/me_fragment";
     public static final String FRAGMENT_CAR = "/car/car_fragment";
