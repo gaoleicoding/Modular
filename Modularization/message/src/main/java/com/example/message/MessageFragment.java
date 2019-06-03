@@ -9,7 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.base.arouter.ARouterParam;
 import com.example.base.arouter.OrderService;
 import com.example.base.arouter.ARouterPath;
 
@@ -19,21 +22,21 @@ public class MessageFragment extends Fragment implements OrderService {
 
     private TextView tvMessage;
     private StringBuilder stringBuilder=new StringBuilder();
-    private int count=1;
-    @Nullable
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
+        ARouter.getInstance().inject(this);
         View view= View.inflate(getActivity(), R.layout.fragment_message, null);
         tvMessage=view.findViewById(R.id.tv_message);
         return view;
     }
 
     @Override
-    public void orderNotify(String name) {
+    public void orderNotify(int count) {
         stringBuilder.append("你成功下了一个订单"+count+"\n");
         tvMessage.setText(stringBuilder.toString());
-        ++count;
+
     }
 
     @Override
