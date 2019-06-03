@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.base.arouter.ARouterParam;
 import com.example.base.arouter.OrderService;
 import com.example.base.arouter.ARouterPath;
 
@@ -17,7 +18,7 @@ import com.example.base.arouter.ARouterPath;
 @Route(path = ARouterPath.FRAGMENT_ORDER)
 public class OrderFragment extends Fragment {
 
-    @Nullable
+    private int count=1;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -26,8 +27,10 @@ public class OrderFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(),"下单成功",Toast.LENGTH_SHORT).show();
-                OrderService orderService=(OrderService)ARouter.getInstance().build(ARouterPath.FRAGMENT_MESSAGE).navigation();
-                orderService.orderNotify("");
+                OrderService orderService=(OrderService)ARouter.getInstance().build(ARouterPath.FRAGMENT_MESSAGE)
+                        .withInt(ARouterParam.ORDER_PARAM_COUNT, count).navigation();
+                orderService.orderNotify(count);
+                ++count;
             }
         });
 
