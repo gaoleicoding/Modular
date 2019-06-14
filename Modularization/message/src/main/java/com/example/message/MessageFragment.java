@@ -8,13 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.alibaba.android.arouter.facade.annotation.Autowired;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.base.arouter.ARouterParam;
-import com.example.base.arouter.OrderService;
 import com.example.base.arouter.ARouterPath;
+import com.example.base.arouter.OrderService;
 
 
 @Route(path = ARouterPath.FRAGMENT_MESSAGE)
@@ -33,10 +30,9 @@ public class MessageFragment extends Fragment implements OrderService {
     }
 
     @Override
-    public void orderNotify(int count) {
-        stringBuilder.append("你成功下了一个订单"+count+"\n");
+    public void orderNotify(String count) {
+        stringBuilder.append(count+"被预定"+"\n");
         tvMessage.setText(stringBuilder.toString());
-
     }
 
     @Override
