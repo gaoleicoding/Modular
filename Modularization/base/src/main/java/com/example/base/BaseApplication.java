@@ -2,7 +2,6 @@ package com.example.base;
 
 import android.app.Application;
 import android.support.multidex.MultiDex;
-
 import com.alibaba.android.arouter.launcher.ARouter;
 
 
