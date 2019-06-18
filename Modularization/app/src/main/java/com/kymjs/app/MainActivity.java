@@ -1,13 +1,14 @@
 package com.kymjs.app;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.base.arouter.ARouterPath;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
@@ -26,11 +27,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayout = findViewById(R.id.tabLayout);
 
         mFragments = new ArrayList<Fragment>();
-        // 获取Fragment
-//        CarFragment carFragment = new CarFragment();
-//        MessageFragment messageFragment = new MessageFragment();
-//        OrderFragment orderFragment = new OrderFragment();
-//        MeFragment meFragment = new MeFragment();
 
         titles = new ArrayList<String>();
         Fragment carFragment = (Fragment) ARouter.getInstance().build(ARouterPath.FRAGMENT_CAR).navigation();
