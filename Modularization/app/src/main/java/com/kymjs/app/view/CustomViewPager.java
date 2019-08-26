@@ -1,9 +1,10 @@
 package com.kymjs.app.view;
 
 import android.content.Context;
-import androidx.core.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+
+import androidx.viewpager.widget.ViewPager;
 
 
 public class CustomViewPager extends ViewPager {
