@@ -12,7 +12,5 @@ android {
             applicationId "com.example.order"
         }
     }
-    dependencies {
-        api project(':base')
-    }
+
 }

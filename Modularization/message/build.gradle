@@ -11,9 +11,6 @@ android {
         if (isMessageAsApp.toBoolean()) {
             applicationId "com.example.message"
         }
+    }
 
-    }
-    dependencies {
-        api project(':base')
-    }
 }

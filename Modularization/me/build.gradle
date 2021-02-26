@@ -5,16 +5,12 @@ if (isMeAsApp.toBoolean()) {
 }
 apply from: rootProject.file('build_default.gradle')
 
-
 android {
 
     defaultConfig {
         if (isMeAsApp.toBoolean()) {
             applicationId "com.example.me"
         }
+    }
 
-    }
-    dependencies {
-        api project(':base')
-    }
 }

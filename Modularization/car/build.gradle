@@ -11,12 +11,7 @@ android {
         if (isCarAsApp.toBoolean()) {
             applicationId "com.example.car"
         }
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
-    dependencies {
-        api project(':base')
-    }
+
 }
 

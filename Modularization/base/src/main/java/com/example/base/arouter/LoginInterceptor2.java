@@ -27,7 +27,7 @@ public class LoginInterceptor2 implements IInterceptor {
         //给需要跳转的页面添加值为Constant.LOGIN_NEEDED的extra参数，用来标记是否需要用户先登录才可以访问该页面
         //先判断需不需要
         if (postcard.getExtra() == ArouterConfig.NEED_LOGIN) {
-        //if(postcard.getPath().equals(ARouterPath.ACTIIVTY_USERINFO))
+            //if(postcard.getPath().equals(ARouterPath.ACTIIVTY_USERINFO))
 
 
             //判断用户的登录情况，可以把值保存在sp中
