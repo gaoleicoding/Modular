@@ -1,4 +1,4 @@
-package com.example.car;
+package com.example.order;
 
 import android.os.Bundle;
 
@@ -6,16 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.base.util.FragmentUtils;
 
-public class MainActivity extends AppCompatActivity {
+public class OrderActivity extends AppCompatActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FragmentUtils.addFragment(this, new CarFragment(), R.id.fl_container);
 
-
+        FragmentUtils.addFragment(this, new OrderFragment(), R.id.fl_container);
 
     }
 }

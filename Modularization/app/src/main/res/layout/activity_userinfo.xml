@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:padding="10dp"
+        android:text="用户信息"
         android:textSize="16dp" />
 </LinearLayout>
 

@@ -6,8 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.base.util.FragmentUtils;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MessageActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

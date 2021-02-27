@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:fitsSystemWindows="true"
-
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/me"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="10dp"
-        android:text="我的"
-        android:textSize="24sp" />
-
     <LinearLayout
-        android:id="@+id/ll_skip_interceptor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -26,22 +14,27 @@
         android:orientation="horizontal"
         android:padding="10dp">
 
-        <ImageView
-            android:id="@+id/bt_skip_interceptor"
+        <Button
+            android:id="@+id/bt_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:src="@mipmap/avatar" />
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:padding="10dp"
+            android:text="注册"
+            android:textAllCaps="false"
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="（点击跳转，无登录则被拦截器拦截跳转至LoginActivity）"
+            android:text="（注册成功返回结果给LoginActivity）"
             android:textColor="#66000000"
             android:textSize="12sp" />
     </LinearLayout>
 
 
 </LinearLayout>
+

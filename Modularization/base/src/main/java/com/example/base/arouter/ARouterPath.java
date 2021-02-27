@@ -8,8 +8,8 @@ public class ARouterPath {
     public static final String FRAGMENT_MESSAGE = "/message/message_fragment";
     public static final String FRAGMENT_ORDER = "/order/order_fragment";
     public static final String ACTIIVTY_LOGIN = "/activity/login";
+    public static final String ACTIVITY_REGISTER = "/activity/register";
     public static final String ACTIIVTY_USERINFO = "/activity/userinfo";
-
 
 
 }

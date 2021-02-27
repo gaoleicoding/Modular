@@ -34,8 +34,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    //给资源名增加前缀, 避免不同Module的资源名冲突
-    resourcePrefix "${project.name}_"
+
 }
 
 dependencies {
