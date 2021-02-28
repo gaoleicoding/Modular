@@ -20,12 +20,12 @@ import com.example.base.arouter.OrderService;
 public class MessageFragment extends Fragment implements OrderService {
 
     private TextView tvMessage;
-    private StringBuilder stringBuilder=new StringBuilder();
+    private final StringBuilder stringBuilder=new StringBuilder();
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        ARouter.getInstance().inject(this);
+//        ARouter.getInstance().inject(this);
         View view= View.inflate(getActivity(), R.layout.fragment_message, null);
         tvMessage=view.findViewById(R.id.tv_message);
         return view;

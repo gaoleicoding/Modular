@@ -6,12 +6,12 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/tv_user"
+        android:id="@+id/tv_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:padding="10dp"
-        android:text="用户信息"
-        android:textSize="16dp" />
+        android:text="NoNeedLoginActivity"
+        android:textSize="16sp" />
 </LinearLayout>
 
