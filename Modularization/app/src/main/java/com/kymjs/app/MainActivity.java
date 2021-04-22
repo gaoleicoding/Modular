@@ -14,8 +14,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<Fragment> mFragments;
-    private ArrayList<String> titles;
     ViewPager viewPager;
     TabLayout tabLayout;
 
@@ -26,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.viewPager);
         tabLayout = findViewById(R.id.tabLayout);
 
-        mFragments = new ArrayList<>();
+        ArrayList<Fragment> mFragments = new ArrayList<>();
 
-        titles = new ArrayList<>();
+        ArrayList<String> titles = new ArrayList<>();
         Fragment carFragment = (Fragment) ARouter.getInstance().build(ARouterPath.FRAGMENT_CAR).navigation();
         Fragment orderFragment = (Fragment) ARouter.getInstance().build(ARouterPath.FRAGMENT_ORDER).navigation();
         Fragment messageFragment = (Fragment) ARouter.getInstance().build(ARouterPath.FRAGMENT_MESSAGE).navigation();

@@ -8,7 +8,6 @@ import com.example.base.util.FragmentUtils;
 
 public class OrderActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

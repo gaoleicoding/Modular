@@ -3,7 +3,7 @@ if (isMessageAsApp.toBoolean()) {
 } else {
     apply plugin: 'com.android.library'
 }
-apply from: rootProject.file('build_default.gradle')
+apply from: rootProject.file('build_common.gradle')
 
 android {
 

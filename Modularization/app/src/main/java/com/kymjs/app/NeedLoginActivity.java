@@ -27,7 +27,7 @@ public class NeedLoginActivity extends AppCompatActivity {
         ARouter.getInstance().inject(this);
         setContentView(R.layout.activity_need_login);
         tvUser = findViewById(R.id.tv_user);
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
 
         stringBuffer.append("msg：").append(msg + "\n");
         if (person != null) {

@@ -15,5 +15,4 @@ public class MeActivity extends AppCompatActivity {
         FragmentUtils.addFragment(this, new MeFragment(), R.id.fl_container);
 
     }
-
 }

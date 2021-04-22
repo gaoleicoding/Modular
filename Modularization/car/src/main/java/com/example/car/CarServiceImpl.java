@@ -1,9 +1,11 @@
-package com.example.base.arouter;
+package com.example.car;
 
 
 import android.content.Context;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.example.base.arouter.ARouterPath;
+import com.example.base.arouter.CarService;
 
 import java.util.List;
 @Route(path = ARouterPath.BASE_CAR_SERVICE)
@@ -13,7 +15,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public List<String> getCarList() {
-        return carList;
+        return CarManager.getInstance().getCarList();
     }
 
     @Override

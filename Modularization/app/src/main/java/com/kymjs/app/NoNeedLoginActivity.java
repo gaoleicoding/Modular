@@ -25,7 +25,7 @@ public class NoNeedLoginActivity extends AppCompatActivity {
         ARouter.getInstance().inject(this);
         setContentView(R.layout.activity_no_need_login);
         tvMsg = findViewById(R.id.tv_msg);
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
         stringBuffer.append("msg：").append(msg + "\n");
         tvMsg.setText(msg);
 

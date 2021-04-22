@@ -12,6 +12,7 @@ import com.example.base.arouter.ARouterPath;
 
 // 在跳转过程中处理登陆事件，这样就不需要在目标页重复做登陆检查
 // 拦截器会在跳转之间执行，多个拦截器会按优先级顺序依次执行
+// priority是拦截器的优先级，值越小优先级越高，会优先拦截。
 @Interceptor(priority = 6)
 public class LoginInterceptorImpl implements IInterceptor {
     @Override
