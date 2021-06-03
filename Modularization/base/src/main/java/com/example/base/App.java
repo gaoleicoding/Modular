@@ -1,11 +1,10 @@
-package com.kymjs.app;
+package com.example.base;
 
 import android.app.Application;
 
 import androidx.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.example.base.BuildConfig;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -16,7 +15,8 @@ public class App extends Application {
         super.onCreate();
         initRouter(this);
         MultiDex.install(this);
-        EventBus.builder().addIndex(new EventBusIndex_message()).installDefaultEventBus();
+        // MyEventBusIndex的文件必须在注册、订阅和发送完成的时候才会生成（必须在对应的Module有@Subscribe）
+//        EventBus.builder().addIndex(new MyEventBusIndex()).installDefaultEventBus();
 
     }
 

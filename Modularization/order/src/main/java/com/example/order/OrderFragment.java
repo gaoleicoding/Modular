@@ -35,21 +35,21 @@ public class OrderFragment extends BaseFragment {
         ARouter.getInstance().inject(this);
         View view = View.inflate(getActivity(), R.layout.fragment_order, null);
 
-        final List<String> list = carService.getCarList();
-        view.findViewById(R.id.tv_order).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (index > list.size() - 1) {
-                    Toast.makeText(getActivity(), "下单失败，车辆已被预定完", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                Toast.makeText(getActivity(), String.format("第%d辆车下单成功", index), Toast.LENGTH_SHORT).show();
-                EventBus.getDefault().post(new CarOrder(index));
-                EventBus.getDefault().postSticky(new StickyToast("粘性事件test"));
-                index++;
-            }
-        });
+//        final List<String> list = carService.getCarList();
+//        view.findViewById(R.id.tv_order).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                if (index > list.size() - 1) {
+//                    Toast.makeText(getActivity(), "下单失败，车辆已被预定完", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                Toast.makeText(getActivity(), String.format("第%d辆车下单成功", index), Toast.LENGTH_SHORT).show();
+//                EventBus.getDefault().post(new CarOrder(index));
+//                EventBus.getDefault().postSticky(new StickyToast("粘性事件test"));
+//                index++;
+//            }
+//        });
 
         return view;
     }

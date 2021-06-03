@@ -12,5 +12,16 @@ android {
             applicationId "com.example.message"
         }
     }
-
+    sourceSets {
+        main {
+            if (isMessageAsApp.toBoolean()) {
+                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+                java {
+                    exclude '**/debug/**'
+                }
+            }
+        }
+    }
 }

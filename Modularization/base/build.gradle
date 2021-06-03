@@ -10,23 +10,11 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [eventBusIndex: 'com.kymjs.app.EventBusIndex_' + project.getName(), AROUTER_MODULE_NAME: project.getName()]
-                println "project.getName(): " + project.getName()
+                arguments = [eventBusIndex: 'com.kymjs.app.MyEventBusIndex', AROUTER_MODULE_NAME: project.getName()]
             }
         }
     }
-    sourceSets {
-        main {
-            if (isOrderAsApp.toBoolean()) {
-                manifest.srcFile 'src/main/debug/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/AndroidManifest.xml'
-                java {
-                    exclude '**/debug/**'
-                }
-            }
-        }
-    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -51,6 +39,8 @@ android {
         api 'com.squareup.retrofit2:retrofit:2.9.0'
         api 'com.squareup.retrofit2:converter-gson:2.9.0'
         api 'com.blankj:utilcode:1.23.7'
+        implementation "androidx.startup:startup-runtime:1.0.0-alpha01"
+
     }
 
 }

@@ -13,6 +13,7 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [eventBusIndex: 'com.kymjs.app.EventBusIndex_' + project.getName(), AROUTER_MODULE_NAME: project.getName()]
+                println "project.getName(): " + project.getName()
             }
         }
     }
